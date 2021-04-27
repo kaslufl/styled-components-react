@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { Wrapper } from "./styled";
+import { Wrapper, fadeIn } from "./styled";
 
 const StyledButton = styled.button`
   background-color: white;
@@ -11,6 +11,7 @@ const StyledButton = styled.button`
   padding: 0.5rem 1rem;
   border: 1px solid palevioletred;
   border-radius: 3px;
+  animation: 2s ${fadeIn} ease-in;
 
   ${({ primary }) =>
     primary &&
@@ -25,8 +26,15 @@ const StyledButton = styled.button`
     background-color: palevioletred;
   }
 
-  .someClass {
-    color: blue;
+`;
+
+const OutterWrapper = styled.div`
+  width: 100%;
+  background-color: blueviolet;
+  margin-top: 2rem;
+  
+  &:hover ${StyledButton}{
+    color:red;
   }
 `;
 
@@ -36,12 +44,9 @@ const SuperButton = styled(StyledButton)`
 
 const Button = ({ primary, children }) => {
   return (
-    <Wrapper>
-      <StyledButton primary={primary}>
-        {children}
-        <p className="someClass">Test</p>
-      </StyledButton>
-    </Wrapper>
+    <OutterWrapper>
+      <StyledButton primary={primary}>{children}</StyledButton>
+    </OutterWrapper>
   );
 };
 
