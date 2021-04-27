@@ -4,10 +4,11 @@ import styled, { css } from "styled-components";
 import { Wrapper, fadeIn } from "./styled";
 
 const StyledButton = styled.button`
-  background-color: white;
-  color: palevioletred;
-  font-size: 1.2rem;
+  background-color: ${(props) => props.theme.colors.light};
+  color: ${(props) => props.theme.colors.main};
+  font-size: ${(props) => props.theme.fontSizes.medium};
   margin: 1rem;
+  margin-top: ${({theme}) => theme.spacers.large}
   padding: 0.5rem 1rem;
   border: 1px solid palevioletred;
   border-radius: 3px;
@@ -26,6 +27,10 @@ const StyledButton = styled.button`
     background-color: palevioletred;
   }
 
+  @media ${({theme}) => theme.mediaQueries.OutterWrapperbellow-768} {
+    font-size: 0.4rem;
+    color: blue;
+  }
 `;
 
 const OutterWrapper = styled.div`
