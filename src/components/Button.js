@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { Wrapper } from './styled';
+import { Wrapper } from "./styled";
 
 const StyledButton = styled.button`
   background-color: white;
@@ -19,6 +19,15 @@ const StyledButton = styled.button`
       color: white;
       box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
     `}
+
+  &:hover {
+    color: white;
+    background-color: palevioletred;
+  }
+
+  .someClass {
+    color: blue;
+  }
 `;
 
 const SuperButton = styled(StyledButton)`
@@ -28,8 +37,10 @@ const SuperButton = styled(StyledButton)`
 const Button = ({ primary, children }) => {
   return (
     <Wrapper>
-      <StyledButton primary={primary}> {children}</StyledButton>
-      <SuperButton primary={primary}>{children}</SuperButton>
+      <StyledButton primary={primary}>
+        {children}
+        <p className="someClass">Test</p>
+      </StyledButton>
     </Wrapper>
   );
 };

@@ -14,6 +14,11 @@ const MainWrapper = styled.section`
 const PaginationWrapper = styled.div`
   display: flex;
   width: 100%;
+  justify-content: ${({ page }) => {
+    if (page === "first") return "flex-end";
+    else if (page === "middle") return "space-between";
+    else return "flex-start";
+  }};
 `;
 
 const App = () => {
@@ -21,8 +26,9 @@ const App = () => {
     <MainWrapper>
       <Button primary>My button</Button>
       <Button>My button</Button>
-      <PaginationWrapper>
+      <PaginationWrapper page='middle'>
         <Button>Page 1</Button>
+        <Button>Page 3</Button>
       </PaginationWrapper>
     </MainWrapper>
   );
