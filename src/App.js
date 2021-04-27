@@ -1,16 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 
-const Title = styled.h1`
-  color: red;
-  font-size: 2.5rem;
+import Button from "./components/Button";
+
+const MainWrapper = styled.section`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+`;
+
+const PaginationWrapper = styled.div`
+  display: flex;
+  width: 100%;
 `;
 
 const App = () => {
   return (
-    <div>
-      <Title>My styled Title</Title>
-    </div>
+    <MainWrapper>
+      <Button primary>My button</Button>
+      <Button>My button</Button>
+      <PaginationWrapper>
+        <Button>Page 1</Button>
+      </PaginationWrapper>
+    </MainWrapper>
   );
 };
 
